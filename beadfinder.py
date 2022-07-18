@@ -7,20 +7,7 @@ import numpy as np
 import numpy.typing as npt
 
 from blob import Blob
-
-
-"""
-The types that used in this module.
-"""
-np_array = npt.ArrayLike
-
-path = str
-
-image = np_array
-
-blobs = List[Blob]
-beads = np_array[Blob]
-beads_pack = np_array[beads]
+from _type_hints import np_array, path, image, blobs, beads, beads_pack
 
 
 def read_image(path: path) -> image:
