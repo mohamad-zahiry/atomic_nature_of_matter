@@ -80,3 +80,23 @@ def bead_tracker(paths: path_list, tau: int, min_pixels: int, delta: int) -> dis
         )
 
     return distances
+
+
+def main():
+    import sys
+
+    min_pixels, tau, delta, *paths = sys.argv[1:]
+
+    distances = bead_tracker(paths, int(tau), int(min_pixels), int(delta))
+
+    output = ""
+    for lst in distances:
+        for dist in lst:
+            output += "%.4f\n" % dist
+        output += "\n"
+
+    print(output, end="")
+
+
+if __name__ == "__main__":
+    main()
