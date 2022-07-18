@@ -1,6 +1,8 @@
 #!/usr/bin/env python3
 
 
+import numpy as np
+
 METER_PER_PIXEL = 0.175e-6
 
 
@@ -15,3 +17,18 @@ def sdc(displacements, delta_t=0.5):
     n = len(displacements)
     variance = sum(list(map(lambda x: (x * METER_PER_PIXEL) ** 2, displacements))) / (2 * n)
     return variance / (2 * delta_t)
+
+
+def boltzmann(D):
+    """
+    boltzmann constant (aka: K)
+    D: self-diffusion coefficient
+
+    D = (K T) / (6 PI RHO ETA)
+    K = (6 D PI RHO ETA) / T
+    """
+    T = 297
+    PI = np.pi
+    ETA = 9.135e-4
+    RHO = 0.5e-6
+    return (6 * D * PI * RHO * ETA) / T
