@@ -32,3 +32,15 @@ def boltzmann(D):
     ETA = 9.135e-4
     RHO = 0.5e-6
     return (6 * D * PI * RHO * ETA) / T
+
+
+def avogadro(K):
+    """
+    avogadro constant (aka: NA): number of units in one mole of any substance
+    K: boltzmann constant
+
+    K = R / NA
+    NA = R / K
+    """
+    R = 8.31446
+    return R / K
