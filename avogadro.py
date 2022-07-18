@@ -44,3 +44,22 @@ def avogadro(K):
     """
     R = 8.31446
     return R / K
+
+
+def main():
+    import sys
+
+    displacements = sys.stdin.read().split("\n")
+    displacements = list(filter(None, displacements))
+    displacements = list(map(float, displacements))
+
+    self_diffusion = sdc(displacements)
+    boltzmann_constant = boltzmann(self_diffusion)
+    avogadro_constant = avogadro(boltzmann_constant)
+
+    print("Boltzmann = %.4e" % boltzmann_constant)
+    print("Avogadro = %.4e" % avogadro_constant)
+
+
+if __name__ == "__main__":
+    main()
