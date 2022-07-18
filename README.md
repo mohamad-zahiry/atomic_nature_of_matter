@@ -100,10 +100,10 @@ $ pip install numpy pillow
   ```
 
   - min_pixel (0-INF): minimum pixel of each **Blob**
-  - tau (0, 255): the **threshold** value
+  - tau (0-255): the **threshold** value
   - image: any image in **runs/run\_<int>/** directory
 
-    _e.g_:
+    _e.g:_
 
         $ python3 beadfinder.py 25 180 runs/run_1/frame00001.jpg
         36 ( 49.3889, 477.8611)
@@ -127,11 +127,11 @@ $ pip install numpy pillow
   ```
 
   - min_pixel (0-INF): minimum pixel of each **Blob**
-  - tau (0, 255): the **threshold** value
+  - tau (0-255): the **threshold** value
   - path: any directory in **runs/run_X/\*** directory
-  - outputfile: a file to store the results of displacements
+  - outputfile: a file to store the results of **displacements**
 
-    _e.g_:
+    _e.g:_
 
         $ python3 beadtracker.py 25 180 25 runs/run_1/* > displacements_run_01.txt
 
@@ -156,8 +156,14 @@ $ pip install numpy pillow
 
   - outputfile: a file that contains the results of displacements (**beadtracker module**)
 
-    _e.g_:
+    _e.g:_
 
-            $ python3 avogadro.py < displacements_run_01.txt
-            Boltzmann = 1.2578e-23
-            Avogadro = 6.6102e+23
+        $ python3 avogadro.py < displacements_run_01.txt
+        Boltzmann = 1.2578e-23
+        Avogadro = 6.6102e+23
+
+    _get input directly from beadtracker module:_
+
+        $ python3 beadtracker.py 25 180 25 runs/run_1/* | python3 avogadro.py
+        Boltzmann = 1.2578e-23
+        Avogadro = 6.6102e+23
