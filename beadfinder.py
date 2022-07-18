@@ -74,3 +74,12 @@ def __find_beads(image: image, blobs: blobs) -> None:
                 blob = Blob()
                 blobs.append(blob)
                 __find_pixels_for_bead(image, blobs, blob, x, y)
+
+
+def bead_finder(image: image, tau: int) -> blobs:
+    img = apply_threshold(image, tau)
+    blobs = []
+
+    __find_beads(img, blobs)
+
+    return blobs
