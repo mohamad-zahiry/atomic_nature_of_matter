@@ -11,7 +11,8 @@ import numpy.typing as npt
 from blob import Blob
 
 
-np_array = npt.ArrayLike
+# np_array = npt.ArrayLike
+np_array = List
 
 path = str
 path_list = List[path]
