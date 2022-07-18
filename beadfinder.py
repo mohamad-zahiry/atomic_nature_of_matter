@@ -90,3 +90,19 @@ def get_beads(min_pixels: int, blobs: blobs, as_numpy: bool = False) -> Union[np
     if as_numpy:
         beads = np.array(list(map(lambda x: x.center, beads)))
     return beads
+
+
+def main():
+    import sys
+
+    min_pixels, tau, img_path = sys.argv[1:4]
+    img = read_image(img_path)
+
+    blobs = bead_finder(img, int(tau))
+    beads = get_beads(int(min_pixels), blobs, as_numpy=False)
+    for bead in beads:
+        print(bead)
+
+
+if __name__ == "__main__":
+    main()
