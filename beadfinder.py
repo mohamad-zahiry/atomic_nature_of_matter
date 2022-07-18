@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 
 
-from typing import List
+from typing import List, Union
 from PIL import Image
 import numpy as np
 import numpy.typing as npt
@@ -83,3 +83,10 @@ def bead_finder(image: image, tau: int) -> blobs:
     __find_beads(img, blobs)
 
     return blobs
+
+
+def get_beads(min_pixels: int, blobs: blobs, as_numpy: bool = False) -> Union[np_array, blobs]:
+    beads = [blob for blob in blobs if blob.mass >= min_pixels]
+    if as_numpy:
+        beads = np.array(list(map(lambda x: x.center, beads)))
+    return beads
