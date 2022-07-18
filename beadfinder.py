@@ -61,3 +61,16 @@ def __find_pixels_for_bead(image: image, blobs: blobs, blob: Blob, x: int, y: in
     __find_pixels_for_bead(image, blobs, blob, x - 1, y - 1)  # bottom-left
     __find_pixels_for_bead(image, blobs, blob, x, y - 1)  # left
     __find_pixels_for_bead(image, blobs, blob, x - 1, y - 1)  # top-left
+
+
+def __find_beads(image: image, blobs: blobs) -> None:
+    xs, ys = np.where(image == 255)
+
+    # All found pixels are change to 0 by __find_pixels_for_bead,
+    # So in next iteration, they aren't used for a new blob.
+    for x in xs:
+        for y in ys:
+            if image[x][y] == 255:
+                blob = Blob()
+                blobs.append(blob)
+                __find_pixels_for_bead(image, blobs, blob, x, y)
