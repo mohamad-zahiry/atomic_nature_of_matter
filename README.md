@@ -80,3 +80,84 @@ Use four digits to the right of the decimal place for all of your floating point
 ### Dataset
 
 The dataset that used in this project provided in [<ins>runs</ins>](https://github.com/mohamad-zahiry/atomic_nature_of_matter/tree/main/runs) directory.
+
+---
+
+## How to use
+
+#### 1. Required Packages
+
+```shell
+$ pip install numpy pillow
+```
+
+#### 2. Usage
+
+- ##### beadfinder.py
+
+  ```shell
+  $ python3 beadfinder.py <min_pixel> <tau> <image>
+  ```
+
+  - min_pixel (0-INF): minimum pixel of each **Blob**
+  - tau (0, 255): the **threshold** value
+  - image: any image in **runs/run\_<int>/** directory
+
+    _e.g_:
+
+        $ python3 beadfinder.py 25 180 runs/run_1/frame00001.jpg
+        36 ( 49.3889, 477.8611)
+        29 ( 82.8276, 214.7241)
+        36 (116.6667, 223.6111)
+        28 (144.2143, 393.5000)
+        35 (214.6000, 310.5143)
+        42 (234.8571, 260.2381)
+        35 (315.7143, 266.0286)
+        31 (355.4516, 286.5806)
+        31 (365.4194, 370.9355)
+        27 (380.4074, 431.2593)
+        37 (399.1351, 299.0541)
+        35 (402.1143, 588.5714)
+        38 (445.8421, 521.7105)
+
+- ##### beadtracker.py
+
+  ```shell
+  $ python3 beadtracker.py min_pixel <tau> <delta> <path> > <outputfile>
+  ```
+
+  - min_pixel (0-INF): minimum pixel of each **Blob**
+  - tau (0, 255): the **threshold** value
+  - path: any directory in **runs/run_X/\*** directory
+  - outputfile: a file to store the results of displacements
+
+    _e.g_:
+
+        $ python3 beadtracker.py 25 180 25 runs/run_1/* > displacements_run_01.txt
+
+    _print output to console:_
+
+        $ python3 beadtracker.py 25 180 25 runs/run_1/*
+        5.4292
+        7.1833
+        2.1693
+        5.5287
+        4.7932
+        4.3962
+        .
+        .
+        .
+
+- ##### avogadro.py
+
+  ```shell
+  $ python3 avogadro.py < <outputfile>
+  ```
+
+  - outputfile: a file that contains the results of displacements (**beadtracker module**)
+
+    _e.g_:
+
+            $ python3 avogadro.py < displacements_run_01.txt
+            Boltzmann = 1.2578e-23
+            Avogadro = 6.6102e+23
