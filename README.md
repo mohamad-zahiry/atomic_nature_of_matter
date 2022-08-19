@@ -34,8 +34,8 @@ The first challenge is to identify the beads amidst the noisy data. Each image i
   We use a simple, but effective, technique known as thresholding to separate the pixels into foreground and background components: _all pixels with monochrome luminance values strictly below some threshold tau are considered background, and all others are considered foreground._
   The two pictures above illustrates the original frame (above left) and the same frame after thresholding (above right), using `tau = 180`. This value of tau results in an effective cut for the supplied data.
 
-![run_1](https://github.com/mohamad-zahiry/atomic_nature_of_matter/blob/main/img/run_1.gif)
-![run_1_threshold](https://github.com/mohamad-zahiry/atomic_nature_of_matter/blob/main/img/run_1_threshold.gif)
+![run_1](https://raw.githubusercontent.com/mohamad-zahiry/atomic_nature_of_matter/main/img/run_1.gif)
+![run_1_threshold](https://raw.githubusercontent.com/mohamad-zahiry/atomic_nature_of_matter/main/img/run_1_threshold.gif)
 
 - ##### Find the blobs
   A polystyrene bead is typically represented by a disc-like shape of at least some minimum number P (typically 25) of connected foreground pixels. A blob or connected component is a maximal set of connected foreground pixels, regardless of its shape or size. We will refer to any blob containing at least P pixels as a bead. The center-of-mass of a blob (or bead) is the average of the x- and y-coordinates of its constituent pixels.
@@ -51,14 +51,14 @@ Einstein's theory of Brownian motion connects microscopic properties (e.g., radi
 - **Estimating the self-diffusion constant**
   The `self-diffusion constant D` characterizes the stochastic movement of a molecule (bead) through a homogeneous medium (the water molecules) as a result of random thermal energy. The Einstein-Smoluchowski equation states that the random displacement of a bead in one dimension has a Gaussian distribution with mean zero and variance `σ2 = 2 D Δt`, where `Δt` is the time interval between position measurements. That is, a molecule's mean displacement is zero and its mean square displacement is proportional to the elapsed time between measurements, with the constant of proportionality 2D. We estimate σ2 by computing the variance of all observed bead displacements in the x and y directions. Let (Δx1, Δy1), ..., (Δxn, Δyn) be the n bead displacements, and let r1, ..., rn denote the radial displacements. Then
 
-  ![variance](https://github.com/mohamad-zahiry/atomic_nature_of_matter/blob/main/img/atomic-variance.png)
+  ![variance](https://raw.githubusercontent.com/mohamad-zahiry/atomic_nature_of_matter/main/img/atomic-variance.png)
 
   For our data, `Δt = 0.5` so this is an estimate for D as well. The radial displacements ri are measured in pixels: to convert to meters, multiply by `0.175 \* 10-6` (meters per pixel).
 
 - **Estimating the Boltzmann constant**
   The Stokes-Einstein relation asserts that the self-diffusion constant of a spherical particle immersed in a fluid is given by Stokes-Einstein relation
 
-  ![stokes-einstein relation](https://github.com/mohamad-zahiry/atomic_nature_of_matter/blob/main/img/atomic-stokeseinstein.png)
+  ![stokes-einstein relation](https://raw.githubusercontent.com/mohamad-zahiry/atomic_nature_of_matter/main/img/atomic-stokeseinstein.png)
 
   where, for our data,
 
