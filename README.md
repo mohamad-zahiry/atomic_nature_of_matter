@@ -1,4 +1,6 @@
-# Aatomic Nature of Matter
+# Aatomic Nature of Matter [![princeton](https://img.shields.io/badge/princeton-CS-orange?style=for-the-badge&logo=htmlacademy&logoColor=orange)](https://introcs.cs.princeton.edu/java/assignments/atomic.html)
+
+![python](https://img.shields.io/badge/python-3.8+-FEDB39?style=flat&logo=python&logoColor=white) ![numpy](https://img.shields.io/badge/-Numpy-0094F5?logo=numpy&logoColor=white) ![pillow](https://img.shields.io/badge/-Pillow-blue?logo=python&logoColor=white)
 
 Tracking the motion of particles undergoing Brownian motion, fitting this data to Einstein's model, and estimating Avogadro's number
 
